@@ -3,24 +3,25 @@ var Router = require('react-router');
 var mui = require('mui');
 var RaisedButton = mui.RaisedButton;
 var HomeFeature = require('./home-feature.jsx');
+var Setting= require('../../setting.jsx');
 
 var HomePage = React.createClass({
 
   mixins: [Router.Navigation],
 
   render: function() {
-
+    var divstyle = {textAlign: 'center'}; //http://stackoverflow.com/a/6044406
     return (
       <div className="mui-app-content-canvas">
         <div className="home-page-hero full-width-section">
           <div className="home-page-hero-content">
-            <img className="svg-logo" src="images/material-ui-logo.svg" />
+            <div style={divstyle}>
+            <img className="svg-logo" src="http://upload.wikimedia.org/wikipedia/commons/d/d2/Tangent-calculus.svg" />
+            </div>
             <div className="tagline">
-              <h1 className="brand-name">material ui</h1>
+              <h1 className="brand-name">{Setting.CourseID}-{Setting.SectionID}</h1>
               <h2 className="mui-font-style-headline">
-                A CSS Framework and a Set of React
-                Components <span className="no-wrap">that
-                Implement</span> <span className="no-wrap">Google&apos;s Material Design</span>
+                {Setting.CourseTitle}
               </h2>
               <RaisedButton className="demo-button" label="Demo" onTouchTap={this._onDemoClick} linkButton={true} />
               <RaisedButton className="github-button" label="GitHub" linkButton={true} href="https://github.com/callemall/material-ui" />
@@ -30,13 +31,7 @@ var HomePage = React.createClass({
 
         <div className="full-width-section home-purpose">
           <p className="full-width-section-content">
-            Material-UI came about from our love of&nbsp;
-            <a href="http://facebook.github.io/react/">React</a> and&nbsp;
-            <a href="https://www.google.com/design/spec/material-design/introduction.html">
-              Google's Material Design
-            </a>. We're currently using it on a project at&nbsp;
-            <a href="https://www.call-em-all.com/">Call-Em-All</a> and plan on adding to it 
-            and making it better in the coming months.
+            {Setting.CourseDescription}
           </p>
         </div>
 

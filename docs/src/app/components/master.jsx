@@ -14,18 +14,21 @@ var Master = React.createClass({
 
   render: function() {
 
-    var title = 
+    var title =
       this.isActive('get-started') ? 'Get Started' :
       this.isActive('css-framework') ? 'Css Framework' :
       this.isActive('components') ? 'Components' : '';
-    var githubButton = (
+    var MainTitle='MA441';
+    var title=title!='' ? '-'+title:title;
+    title = MainTitle+title;
+    var MainButton = (
       <IconButton
-        className="github-icon-button"
-        icon="mui-icon-github"
-        href="https://github.com/callemall/material-ui"
+        className="main-icon-button"
+        icon="social-school"
+        href="https://kwangkim.github.com/course"
         linkButton={true} />
     );
-
+    var webTitle = ' MA441';
     return (
       <AppCanvas predefinedLayout={1}>
 
@@ -34,7 +37,7 @@ var Master = React.createClass({
           onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap}
           title={title}
           zDepth={0}>
-          {githubButton}
+          <h1 className="mui-app-bar-title-right">{webTitle}</h1>
         </AppBar>
 
         <AppLeftNav ref="leftNav" />
@@ -43,10 +46,9 @@ var Master = React.createClass({
 
         <div className="footer full-width-section mui-dark-theme">
           <p>
-            Hand crafted with love by the engineers at <a href="http://call-em-all.com">Call-Em-All</a> and our 
-            awesome <a href="https://github.com/callemall/material-ui/graphs/contributors">contributors</a>.
+            Forked from <a href="http://callemall.github.io/material-ui/#/">React Material by Call-Em-All</a>.
           </p>
-          {githubButton}
+          {MainButton}
         </div>
 
       </AppCanvas>
@@ -56,7 +58,7 @@ var Master = React.createClass({
   _onMenuIconButtonTouchTap: function() {
     this.refs.leftNav.toggle();
   }
-  
+
 });
 
 module.exports = Master;
