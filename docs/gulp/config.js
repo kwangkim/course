@@ -1,6 +1,9 @@
-var dest = './build',
+var 
+  dist= './dist',
+  dest = './build',
   src = './src',
   mui = '../src';
+  
 
 module.exports = {
   browserSync: {
